@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag :all, :cache => true %>
+
+<div class="outer_wrapper">
+<div id="header">
+	<ul>
+		<li> <%= link_to("Outline", outline_url()) %> </li>
+		<li><%= link_to("Feedback", feedback_url()) %> </li>
+	</ul> 		
+</div>	
+<div>
+	<h1> <%= image_tag("fbtt.png") %> <span>Facebooker Tutorial</span> </h1>
+    <% fb_tabs do %>  
+	   <%= section_tab_items() %>  
+    <% end %>
+</div>   
+
+
+<h2> <%= @title || @current_lesson.title %> </h2> 
+
+
+
+ <%= next_lesson() %> 
+<br class="clear"/>
+<p class="purpose"> 
+   <%= @purpose %>
+</p>  
+
+
+<%= yield %> 
+
+
+<%= next_lesson() %> 
+
+	
+</div>

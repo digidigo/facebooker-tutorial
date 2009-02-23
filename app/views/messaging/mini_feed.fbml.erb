@@ -1,0 +1,59 @@
+
+
+<div id="tutorial_steps">
+<ol>
+  <li>
+     I am pretty sure that the permissions around the the Mini Feed, require that the user hass added the application.  Put this call at the top of the controller. 
+     <%= highlight_code("ensure_application_is_installed_by_facebook_user") %>
+                     <em> Note: Facebook will fail silently  if the user has not added the app </em>
+</li>
+	 <li> 
+		Create a class that extends Facebooker::Rails::Publisher. You can put this class anywhere but Rails will auto load it if you put it in RAILS_ROOT/lib. 
+                <%= highlight_tagged("lib/facebooker_publisher.rb", "CLASS_CREATE")%>
+
+	  </li> 
+  
+          <li>
+             Define a method that will handle your Mini Feed message.  
+             This method can take any number of arguments. For a Mini Feed you typically would need 
+             to pass in the user that the message is for. You must set which user's Mini-Feed is being published to with the from method.
+             It is best if the first line in you method indicates which type of 
+             message to publish to Facebook, in this case this is done via "send_as :action". 
+             
+             <%= highlight_method("lib/facebooker_publisher.rb", "mini_feed") %>
+             
+           
+                 The Publisher instance that gets created is a proxy for each of the Facebooker messaging types. 
+                 You can look at the code or documentation so see what methods are supported. The following 
+                 options are supported by "send_as" and the class to look at for available methods.
+                 <ul>
+                   <li> 
+                      :action => Facebooker::Feed::Action
+                   </li>
+                   <li>
+                     :story => Facebooker::Feed::Story
+                   </li>
+                   <li> 
+                      :templatized_action => Facebooker::Feed::TemplatizedAction
+                   </li>
+
+<li>
+     :email => Facebooker::User send_email method
+</li>
+<li>
+     :notification => Facebooker::Session send_notification method
+</li>
+
+                 </ul>
+           
+          </li>
+
+<li>  Now you can deliver your Mini-Feed news item by calling deliver_<%= h("<method>") %> 
+      <%= highlight_method("app/controllers/#{params[:controller]}_controller.rb", "test_mini_feed") %>
+</li>
+
+	</ol> 
+         <h2><%= link_to("Test Mini Feed Now!", :action => "test_mini_feed") %></h2>
+</div>
+
+

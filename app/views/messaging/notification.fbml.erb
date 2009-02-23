@@ -1,0 +1,42 @@
+
+
+<div id="tutorial_steps">
+<ol>
+       <li>
+           You can check to see what your current notification allocations are by calling
+          <%= highlight_tagged( this_view(), "ALLOCATION", :rhtml )%>
+          This app currently can send 
+          <%# ALLOCATION_TAG %>
+          <%=  @facebook_session.admin.get_allocation(:notifications_per_day) rescue "<em> Need to be logged in to know this.</em> " %>
+          <%# ALLOCATION_TAG %>
+          notifications per day per user.
+       
+       </li>
+	 <li> 
+		Create a class that extends Facebooker::Rails::Publisher. You can put this class anywhere but Rails will auto load it if you put it in RAILS_ROOT/lib. 
+                <%= highlight_tagged("lib/facebooker_publisher.rb", "CLASS_CREATE")%>
+	  </li> 
+  
+          <li>
+             Define a method that will handle your Notification message.  
+             This method can take any number of arguments. A Notification has a sender and a reciever.  The sender will also see that he has sent the message to the
+             reciever.
+             The Publisher API requires that you set <em>from</em> and <em> recievers </em>  Make sure you call <em> send_as :notification </em>. 
+             
+             <%= highlight_method("lib/facebooker_publisher.rb", "notification") %>
+             
+          </li>
+
+          <li>
+     Now you can deliver your Notificaiton to your users by calling deliver_<%= h("<method>") %> 
+      <%= highlight_controller_method("test_notification") %>
+
+
+<em> Note: in this example you are sending the notificaiton to yourself. </em>
+</li>
+
+	</ol> 
+         <h2><%= link_to("Test Notification Now!", :action => "test_notification") %></h2>
+</div>
+
+

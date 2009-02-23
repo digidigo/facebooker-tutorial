@@ -1,0 +1,2 @@
+module FacebookerAppsHelper
+end

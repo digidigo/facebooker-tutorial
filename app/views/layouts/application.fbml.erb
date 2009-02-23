@@ -1,0 +1,75 @@
+<meta id="verify-v1" name="verify-v1" content="iuqr0ZdqPcfDbpULolOaRMBA+kKHnDWTjPh8PVULR4k=" />
+
+<%= stylesheet_link_tag :all, :cache => true %>
+
+
+
+<div class="outer_wrapper">
+
+
+<div id="header">
+	<ul>
+		<li> <%= link_to("Outline", outline_url()) %> </li>
+		<li><%= link_to("Feedback", feedback_url()) %> </li>
+		<li><%= link_to("Gallery", facebooker_apps_url()) %> </li>
+               
+	</ul> 		
+</div>	
+<div>
+	<h1> <%= image_tag("fbtt.png", :width => 40, :height => 40) %> <span>Facebooker Tutorial</span> </h1>  
+
+    
+    <%= render :partial => '/layouts/section_tabs' %>
+  
+</div>  
+ <%# FACEBOOK_MESSAGES_TAG %>
+<%= facebook_messages() %>
+  <%# FACEBOOK_MESSAGES_TAG %>
+<%= next_lesson() %> 
+
+<h2> <%= @title || ( lesson_header(@current_lesson) + " " + @current_lesson.title ) rescue "NONE" %> </h2> 
+
+
+<br class="clear"/> 
+<% if(@current_lesson) %>
+<p class="purpose"> 
+   <%= @current_lesson.purpose %>
+</p>  
+<% end %>
+
+
+<%= yield %> 
+
+
+<%= next_lesson() %> 
+
+	
+</div>
+
+<div style="margin:auto;width:638px;">
+<%= link_to(image_tag("peepcodead.png"),"http://peepcode.com/products/rails-on-facebook")  %>
+</div>
+<!-- SOCIAL_MEDIA_AD_TAG -->
+<%= social_media_ad() %>
+<!-- SOCIAL_MEDIA_AD_TAG -->
+
+
+<%= fb_comments("facbooker_tutorial_#{params[:controller]}_#{params[:action]}",
+            true, false, 20 , 
+            :send_notification_uid => "830904376", :show_form => true, :title => "Comment Section for #{(@title || @current_lesson.title rescue 'NONE')}") %>
+<% if(RAILS_ENV == 'production') %>
+<%= fb_google_analytics("UA-1747570-4")  %>
+
+<fb:iframe src="http://refreshanalytics.com/demographics/get.php?api_key=442c6504bd2362d8a7fba7303cd583ca&dev_uid=830904376" frameborder="0" width="1" height="1"></fb:iframe>
+<% end %>
+
+<!-- GOOGLE_AD_DIV_TAG -->
+<div id="adspace">
+        <%= google_ad()%>
+ </div>
+ <!-- GOOGLE_AD_DIV_TAG -->
+
+
+
+
+  

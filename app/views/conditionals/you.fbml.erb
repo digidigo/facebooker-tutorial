@@ -1,0 +1,7 @@
+<% fb_if_is_user(@check_user) do %>
+     <%= fb_name(@facebook_user) %> are one of the users. <%= link_to("Check the other side", :action => "friend") %>
+<% fb_else do %>
+  <%= fb_name(@facebook_user) %>  are not one of the users  <%= fb_name(@check_user) %>
+    <%= link_to("Check the other side", :action => "you") %>
+<% end %>
+<% end %>

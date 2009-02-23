@@ -1,0 +1,13 @@
+
+<br/><br/><br/><br/>
+
+<% content_for("invite_user") do %>
+	Check out the new Facebooker Tutorial a Ruby library for Facebook Development.  Lots of good stuff in there! <% fb_req_choice("Check it out!", outline_url()) %>
+<% end %>   
+
+<% fb_request_form("Facebooker Application","invite_user", outline_url() ) do %>
+	<%= fb_request_form_submit(:uid => params[:id], :label => "Tel %n") %>
+<% end %>   
+
+<br/><br/><br/><br/>
+

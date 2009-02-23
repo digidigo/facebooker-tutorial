@@ -1,0 +1,12 @@
+
+<div style="margin:10px;" class="clearfix">
+<%= image_tag( @facebooker_app.image_url, :style => "width:75px;height:75px;display:block;float:left;", :alt => "#{@facebooker_app.name} icon" )%>
+
+<div style="float:left; width:60%;margin-left:10px;">
+<%= content_tag(:h2, link_to( @facebooker_app.name, @facebooker_app.url), :style => "display:inline;") %> 
+<div id="app_rem_<%= @facebooker_app.id%>">
+<%= render :partial => "approve_remove_tag", :locals => {:facebooker_app => @facebooker_app}  %>
+</div>
+<%= content_tag(:p, @facebooker_app.description) %>
+</div>
+</div>

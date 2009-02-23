@@ -1,0 +1,17 @@
+<%= javascript_include_tag("facebooker.js")%>
+<table>
+  <tr>
+  </tr>
+
+<% for @facebooker_app in @facebooker_apps %>
+  <tr>
+     <div id="facebooker_app_<%= @facebooker_app.id %>">
+        <%= render :partial => "facebooker_app"%>
+     </div>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New facebooker_app', new_facebooker_app_path %>

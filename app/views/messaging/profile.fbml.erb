@@ -1,0 +1,41 @@
+
+
+<div id="tutorial_steps">
+<ol>
+     
+	 <li> 
+		Create a class that extends Facebooker::Rails::Publisher. You can put this class anywhere but Rails will auto load it if you put it in RAILS_ROOT/lib. 
+                <%= highlight_tagged("lib/facebooker_publisher.rb", "CLASS_CREATE")%>
+	  </li> 
+  
+          <li>
+             Define a method that will handle publishing to a users profile.  
+             This method can take any number of arguments. The Profile API has a user whose 
+             session you are using to authenticate and a user whose profile is actually being updated.
+             You can only update profiles of user that have added your application.  The same API call is 
+used to update the profile action section of the profile. <%= wiki_link("Fb:profile-action")%>. 
+              Make sure you call <em> send_as :profile </em> somewhere in your method. 
+             
+             <%= highlight_method("lib/facebooker_publisher.rb", "profile_for_user") %>
+             
+          </li>
+
+          <li>
+     Now you can now update your own profile by calling deliver_<%= h("<method>") %> 
+      <%= highlight_controller_method("test_profile") %>
+
+
+     <em> Note: in this example you are updating your own profile. </em>
+</li>
+<li>
+  Here are the templates:
+  <%= highlight_file(this_view("_user_profile"), :rhtml)%>
+    <em> Note: You need to inline your styles for you profile </em>
+  <%= highlight_file(this_view("_profile_action"), :rhtml)%>
+</li>
+
+	</ol> 
+         <h2><%= link_to("Update Profile Now!", :action => "test_profile") %></h2>
+</div>
+
+

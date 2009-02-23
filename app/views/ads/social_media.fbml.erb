@@ -1,0 +1,22 @@
+
+
+<div id="tutorial_steps">
+<ol>
+	 <li> 
+		Sign up for an account at <%= link_to("SocialMedia Networks", "http://www.socialmedia.com/")%> and configure an ad for your site.
+                 <br/> 
+                 <em> Note: SocialMedia requires that you "Track" your site through their application, Appsoholic. </em> 
+	  </li>  
+	  <li> 
+		SocialMedia ads are simpler to manage than Google Adsense as they do not use Javascript and you can simply render an iframe.
+                Add a method to applicaiton helper.
+               <%= highlight_helper_method('application', "social_media_ad") %> 
+	  </li>
+
+          <li>
+              Call this method in your layout.
+              <%= highlight_tagged('app/views/layouts/application.fbml.erb', "SOCIAL_MEDIA_AD", "rhtml") %>
+          </li>
+	</ol> 
+  
+</div>

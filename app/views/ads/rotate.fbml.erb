@@ -1,0 +1,26 @@
+
+
+<div id="tutorial_steps">
+<ol>
+	 <li> 
+		If our previous lessons we created ads for Google Adsense and SocialMedia Networks. You will need at least two types of ads for this lesson.
+                <%= highlight_helper_method('application', "social_media_ad") %> 
+                <%= highlight_helper_method('application', "google_ad") %> 
+	  </li>  
+	  <li> 
+		Both of the ads that we are rendering use the 'fb:iframe' tag. We can now create a method that randomly selects one of these ads.
+                <%= highlight_helper_method('application', "rotate_ad") %> 
+	  </li>
+
+          <li>
+              Call this method in your template.
+              <%= highlight_tagged('app/views/ads/rotate.fbml.erb', "ROTATE") %>
+                <h3> This ad is randomly selected </h3>
+<!-- ROTATE_TAG -->
+  <%= rotate_ad() %>
+<!-- ROTATE_TAG -->
+          </li>
+          
+	</ol> 
+  
+</div>

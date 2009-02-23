@@ -1,0 +1,4 @@
+<fb:comments xid="comments_comments" canpost="true" candelete="false" returnurl="<%= url_for(:action => "index", :only_path => false) %>"> <fb:title>Talk about Comments.  All of this data is stored on Facebook Servers.</fb:title>  </fb:comments>  
+
+
+<%= fb_comments('comments_comments_again',true,false,10, :send_notification_uid => 830904376 )     %>

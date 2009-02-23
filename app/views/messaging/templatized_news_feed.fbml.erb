@@ -1,0 +1,51 @@
+
+
+<div id="tutorial_steps">
+<ol>
+  <li>
+     I am pretty sure that the permissions around the News Feed, require that the user hass added the application.  Put this call at the top of the controller. 
+     <%= highlight_code("ensure_application_is_installed_by_facebook_user") %> According to the wiki for <%= wiki_link("Feed.publishTemplatizedAction")%> 
+          this call has the possiblity of being published on the News Feeds of the user's friends.  This is key to the viral ability of your app.
+</li>
+	 <li> 
+		Create a class that extends Facebooker::Rails::Publisher. You can put this class anywhere but Rails will auto load it if you put it in RAILS_ROOT/lib. 
+                <%= highlight_tagged("lib/facebooker_publisher.rb", "CLASS_CREATE")%>
+                <em> Note: Facebook will fail silently  if the user has not added the app </em>
+	  </li> 
+  
+          <li>
+             Define a method that will handle your News Feed message.  
+             This method can take any number of arguments. A Templatized News feed item is published to the currently logged in 
+             user and has the following data associated with it.
+             
+             <ul>
+               <li>title_template - The markup template displayed in the Feed story's title section.</li>
+               <li>title_data - associative array of the values that should be substituted into the templates in the title_template markup string.</li>
+               <li>body_template - The markup template displayed in the Feed story's body section.</li>
+               <li>body_date - associative array of the values that should be substituted into the templates in the body_template markup string. </li>
+               <li>body_general - Additional markup that goes in the body that is not aggregated  </li>
+             </ul>
+             
+             <%= highlight_method("lib/facebooker_publisher.rb", "templatized_news_feed") %>
+             
+
+          </li>
+
+<li>  Now you can deliver your NewsFeed news item by calling deliver_<%= h("<method>") %> 
+      <%= highlight_method("app/controllers/#{params[:controller]}_controller.rb", "test_templatized_news_feed") %>
+      <%= image_tag("publisher/news_feed_item.png", :style => "") %>
+</li>
+
+
+<li>
+      Now you register your template by going to "My Applications" and clicking on "Register New Template".
+      <%= image_tag("publisher/register_template.png", :style => "")%>
+      Enter in your title_template and body_template and check the box indicating you want all friends to see the message.  This will help enable the viral spreading of your application.
+</li>
+
+	</ol> 
+         <h2><%= link_to("Test Templatized News Feed", :action => "test_templatized_news_feed") %></h2>
+</div>
+
+
+

@@ -1,0 +1,508 @@
+.CodeRay {
+  background-color: #f8f8f8;
+  border: 1px solid silver;
+  font-family: 'Courier New', 'Terminal', monospace;
+  color: #100;
+}
+.CodeRay pre { margin: 0px }
+
+div.CodeRay { }
+
+span.CodeRay { white-space: pre; border: 0px; padding: 2px }
+
+table.CodeRay { border-collapse: collapse; width: 100%; padding: 2px }
+table.CodeRay td { padding: 2px 4px; vertical-align: top }
+
+.CodeRay .line_numbers, .CodeRay .no {
+  background-color: #def;
+  color: gray;
+  text-align: right;
+}
+.CodeRay .line_numbers tt { font-weight: bold }
+.CodeRay .no { padding: 0px 4px }
+.CodeRay .code { width: 100% }
+
+ol.CodeRay { font-size: 10pt }
+ol.CodeRay li { white-space: pre }
+
+.CodeRay .code pre { overflow: auto }
+
+.CodeRay .debug { color:white ! important; background:blue ! important; }
+
+.CodeRay .af { color:#00C }
+.CodeRay .an { color:#007 }
+.CodeRay .av { color:#700 }
+.CodeRay .aw { color:#C00 }
+.CodeRay .bi { color:#509; font-weight:bold }
+.CodeRay .c  { color:#666; }
+
+.CodeRay .ch { color:#04D }
+.CodeRay .ch .k { color:#04D }
+.CodeRay .ch .dl { color:#039 }
+
+.CodeRay .cl { color:#B06; font-weight:bold }
+.CodeRay .co { color:#036; font-weight:bold }
+.CodeRay .cr { color:#0A0 }
+.CodeRay .cv { color:#369 }
+.CodeRay .df { color:#099; font-weight:bold }
+.CodeRay .di { color:#088; font-weight:bold }
+.CodeRay .dl { color:black }
+.CodeRay .do { color:#970 }
+.CodeRay .ds { color:#D42; font-weight:bold }
+.CodeRay .e  { color:#666; font-weight:bold }
+.CodeRay .en { color:#800; font-weight:bold }
+.CodeRay .er { color:#F00; background-color:#FAA }
+.CodeRay .ex { color:#F00; font-weight:bold }
+.CodeRay .fl { color:#60E; font-weight:bold }
+.CodeRay .fu { color:#06B; font-weight:bold }
+.CodeRay .gv { color:#d70; font-weight:bold }
+.CodeRay .hx { color:#058; font-weight:bold }
+.CodeRay .i  { color:#00D; font-weight:bold }
+.CodeRay .ic { color:#B44; font-weight:bold }
+
+.CodeRay .il { background: #eee }
+.CodeRay .il .il { background: #ddd }
+.CodeRay .il .il .il { background: #ccc }
+.CodeRay .il .idl { font-weight: bold; color: #888 }
+
+.CodeRay .in { color:#B2B; font-weight:bold }
+.CodeRay .iv { color:#33B }
+.CodeRay .la { color:#970; font-weight:bold }
+.CodeRay .lv { color:#963 }
+.CodeRay .oc { color:#40E; font-weight:bold }
+.CodeRay .of { color:#000; font-weight:bold }
+.CodeRay .op { }
+.CodeRay .pc { color:#038; font-weight:bold }
+.CodeRay .pd { color:#369; font-weight:bold }
+.CodeRay .pp { color:#579 }
+.CodeRay .pt { color:#339; font-weight:bold }
+.CodeRay .r  { color:#080; font-weight:bold }
+
+.CodeRay .rx { background-color:#fff0ff }
+.CodeRay .rx .k { color:#808 }
+.CodeRay .rx .dl { color:#404 }
+.CodeRay .rx .mod { color:#C2C }
+.CodeRay .rx .fu  { color:#404; font-weight: bold }
+
+.CodeRay .s  { background-color:#fff0f0 }
+.CodeRay .s  .s { background-color:#ffe0e0 }
+.CodeRay .s  .s  .s { background-color:#ffd0d0 }
+.CodeRay .s  .k { color:#D20 }
+.CodeRay .s  .dl { color:#710 }
+
+.CodeRay .sh { background-color:#f0fff0 }
+.CodeRay .sh .k { color:#2B2 }
+.CodeRay .sh .dl { color:#161 }
+
+.CodeRay .sy { color:#A60 }
+.CodeRay .sy .k { color:#A60 }
+.CodeRay .sy .dl { color:#630 }
+
+.CodeRay .ta { color:#070 }
+.CodeRay .tf { color:#070; font-weight:bold }
+.CodeRay .ts { color:#D70; font-weight:bold }
+.CodeRay .ty { color:#339; font-weight:bold }
+.CodeRay .v  { color:#036 }
+.CodeRay .xt { color:#444 }
+
+
+/* Styles stolen from various facebook css */
+body {
+font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+font-size:14px;
+text-align:left;
+}      
+
+a {
+color:#3B5998;
+text-decoration:none;
+font-weight:bold;
+}  
+
+a:hover {
+text-decoration:underline;
+}      
+
+h1, h2, h3, h4, h5 {
+color:#333333;
+font-size:13px;
+margin:0px;
+padding:0px;
+}    
+
+h1 {
+font-size:14px;
+}
+h4, h5 {
+font-size:11px;
+}
+p {
+font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+font-size:11px;
+text-align:left;
+}
+
+/* End stolen*/
+
+div#header li{
+	display:inline;
+}   
+
+div#header{
+	float:right;
+}   
+
+div.code{
+	margin-top:15px;
+        margin-bottom:15px;
+        overflow:auto;
+}
+
+
+div#tutorial_steps{
+	padding:10px;  
+	margin:auto;
+} 
+
+div#tutorial_steps li{
+  padding-top:5px;
+}
+
+h1 span, h1 img{
+	vertical-align:middle;
+}   
+
+li img{
+border:thin solid gray;
+padding:5px;
+display:block;
+margin:auto;
+}
+
+div#tutorial_steps p#purpose{
+	width:90%; 
+	margin:auto;
+	border: thick solid darkgray;
+}  
+
+h1{
+	font-size:25px;
+	padding:10px;
+}     
+
+h2{
+	margin:10px 0px;
+	font-size:20px;
+}  
+
+p.purpose{
+	font-size: 1.2em;
+	padding:5px;
+	border:thin solid black;
+	margin:15px;     
+	background-color:#f7f7f7;
+}   
+
+div.outer_wrapper{
+	margin-left:10px;
+	margin-right:10px;
+} 
+
+div.next_lesson{
+	float:right;
+	font-size:1.2em;
+	
+}   
+
+div.next_lesson a{
+	font-weight:bold;
+}   
+
+li{
+	font-size:1.2em;
+}  
+
+li em{
+	font-size:.9em;
+        color:blue;
+}   
+
+span.title{
+	font-size:1.2em;
+	font-weight:bold;
+}
+
+div#adspace{
+  width:500px;
+  margin:auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Stylesheet generated from TextMate theme
+ *
+ * Twilight
+ * 
+ *
+ */
+
+/* Mostly to improve view within the TextMate HTML viewer */
+body {
+	margin: 0;
+	padding: 0;
+}
+
+pre.textmate-source {
+	margin: 0;
+	padding: 0 0 0 2px;
+	font-family: Monaco, monospace;
+	font-size: 10px;
+	line-height: 1.3em;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+}
+
+pre.textmate-source.twilight {
+	color: #F8F8F8;
+	background-color: #141414;
+}
+
+pre.textmate-source .linenum {
+	width: 75px;
+	padding: 0.1em 1em 0.2em 0;
+	color: #888;
+	background-color: #eee;
+}
+pre.textmate-source.twilight span {
+   padding-top: 0.2em;
+   padding-bottom: 0.1em;
+}
+pre.textmate-source.twilight ::selection {
+	background-color: rgba(255, 255, 248, 0.36);
+}
+/* Comment */
+pre.textmate-source.twilight .comment {
+	color: #5F5A60;
+	font-style: italic;
+}
+
+/* Constant */
+pre.textmate-source.twilight .constant {
+	color: #CF6A4C;
+}
+
+/* Entity */
+pre.textmate-source.twilight .entity {
+	color: #9B703F;
+}
+
+/* Keyword */
+pre.textmate-source.twilight .keyword {
+	color: #CDA869;
+}
+
+/* Storage */
+pre.textmate-source.twilight .storage {
+	color: #F9EE98;
+}
+
+/* String */
+pre.textmate-source.twilight .string {
+	color: #8F9D6A;
+}
+
+/* Support */
+pre.textmate-source.twilight .support {
+	color: #9B859D;
+}
+
+/* Variable */
+pre.textmate-source.twilight .variable {
+	color: #7587A6;
+}
+
+/* Invalid – Deprecated */
+pre.textmate-source.twilight .invalid_deprecated {
+	color: #D2A8A1;
+	font-style: italic;
+	text-decoration: underline;
+}
+
+/* Invalid – Illegal */
+pre.textmate-source.twilight .invalid_illegal {
+	color: #F8F8F8;
+	background-color: rgba(86, 45, 86, 0.75);
+}
+
+/* ♦ Embedded Source */
+pre.textmate-source.twilight .text .source {
+	background-color: rgba(176, 179, 186, 0.08);
+}
+
+/* ♦ Embedded Source (Bright) */
+pre.textmate-source.twilight .text_html_ruby .source {
+	background-color: rgba(177, 179, 186, 0.13);
+}
+
+/* ♦ Entity inherited-class */
+pre.textmate-source.twilight .entity_other_inherited-class {
+	color: #9B5C2E;
+	font-style: italic;
+}
+
+/* ♦ String embedded-source */
+pre.textmate-source.twilight .string .source {
+	color: #DAEFA3;
+}
+
+/* ♦ String constant */
+pre.textmate-source.twilight .string .constant {
+	color: #DDF2A4;
+}
+
+/* ♦ String.regexp */
+pre.textmate-source.twilight .string_regexp {
+	color: #E9C062;
+}
+
+/* ♦ String.regexp.«special» */
+pre.textmate-source.twilight .string_regexp .constant_character_escape, pre.textmate-source.twilight .string_regexp .source_ruby_embedded, pre.textmate-source.twilight .string_regexp .string_regexp_arbitrary-repitition {
+	color: #CF7D34;
+}
+
+/* ♦ String variable */
+pre.textmate-source.twilight .string .variable {
+	color: #8A9A95;
+}
+
+/* ♦ Support.function */
+pre.textmate-source.twilight .support_function {
+	color: #DAD085;
+}
+
+/* ♦ Support.constant */
+pre.textmate-source.twilight .support_constant {
+	color: #CF6A4C;
+}
+
+/* c C/C++ Preprocessor Line */
+pre.textmate-source.twilight .meta_preprocessor_c {
+	color: #8996A8;
+}
+
+/* c C/C++ Preprocessor Directive */
+pre.textmate-source.twilight .meta_preprocessor_c .keyword {
+	color: #AFC4DB;
+}
+
+/* ✘ Doctype/XML Processing */
+pre.textmate-source.twilight .meta_tag_sgml_doctype, pre.textmate-source.twilight .meta_tag_sgml_doctype .entity, pre.textmate-source.twilight .meta_tag_sgml_doctype .string, pre.textmate-source.twilight .meta_tag_preprocessor_xml, pre.textmate-source.twilight .meta_tag_preprocessor_xml .entity, pre.textmate-source.twilight .meta_tag_preprocessor_xml .string {
+	color: #494949;
+}
+
+/* ✘ Meta.tag.«all» */
+pre.textmate-source.twilight .declaration_tag, pre.textmate-source.twilight .declaration_tag .entity, pre.textmate-source.twilight .meta_tag, pre.textmate-source.twilight .meta_tag .entity {
+	color: #AC885B;
+}
+
+/* ✘ Meta.tag.inline */
+pre.textmate-source.twilight .declaration_tag_inline, pre.textmate-source.twilight .declaration_tag_inline .entity, pre.textmate-source.twilight .source .entity_name_tag, pre.textmate-source.twilight .source .entity_other_attribute-name, pre.textmate-source.twilight .meta_tag_inline, pre.textmate-source.twilight .meta_tag_inline .entity {
+	color: #E0C589;
+}
+
+/* § css tag-name */
+pre.textmate-source.twilight .meta_selector_css .entity_name_tag {
+	color: #CDA869;
+}
+
+/* § css:pseudo-class */
+pre.textmate-source.twilight .meta_selector_css .entity_other_attribute-name_tag_pseudo-class {
+	color: #8F9D6A;
+}
+
+/* § css#id */
+pre.textmate-source.twilight .meta_selector_css .entity_other_attribute-name_id {
+	color: #8B98AB;
+}
+
+/* § css.class */
+pre.textmate-source.twilight .meta_selector_css .entity_other_attribute-name_class {
+	color: #9B703F;
+}
+
+/* § css property-name: */
+pre.textmate-source.twilight .support_type_property-name_css {
+	color: #C5AF75;
+}
+
+/* § css property-value; */
+pre.textmate-source.twilight .meta_property-group .support_constant_property-value_css, pre.textmate-source.twilight .meta_property-value .support_constant_property-value_css {
+	color: #F9EE98;
+}
+
+/* § css @at-rule */
+pre.textmate-source.twilight .meta_preprocessor_at-rule .keyword_control_at-rule {
+	color: #8693A5;
+}
+
+/* § css additional-constants */
+pre.textmate-source.twilight .meta_property-value .support_constant_named-color_css, pre.textmate-source.twilight .meta_property-value .constant {
+	color: #CA7840;
+}
+
+/* § css constructor.argument */
+pre.textmate-source.twilight .meta_constructor_argument_css {
+	color: #8F9D6A;
+}
+
+/* ⎇ diff.header */
+pre.textmate-source.twilight .meta_diff, pre.textmate-source.twilight .meta_diff_header, pre.textmate-source.twilight .meta_separator {
+	color: #F8F8F8;
+	font-style: italic;
+	background-color: #0E2231;
+}
+
+/* ⎇ diff.deleted */
+pre.textmate-source.twilight .markup_deleted {
+	color: #F8F8F8;
+	background-color: #420E09;
+}
+
+/* ⎇ diff.changed */
+pre.textmate-source.twilight .markup_changed {
+	color: #F8F8F8;
+	background-color: #4A410D;
+}
+
+/* ⎇ diff.inserted */
+pre.textmate-source.twilight .markup_inserted {
+	color: #F8F8F8;
+	background-color: #253B22;
+}
+
+/* Markup: List */
+pre.textmate-source.twilight .markup_list {
+	color: #F9EE98;
+}
+
+/* Markup: Heading */
+pre.textmate-source.twilight .markup_heading {
+	color: #CF6A4C;
+}
+
+

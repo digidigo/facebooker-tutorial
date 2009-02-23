@@ -1,0 +1,7 @@
+
+<% content_for(:invite_user) do %>
+  "You should really check out this thing."
+<% end %>
+<% fb_request_form("Invite","invite_user","create_invite_path") do %>
+  <%= fb_multi_friend_selector("Hey there check this out.", :showborder => true, :condensed => true)   %>
+<% end %>

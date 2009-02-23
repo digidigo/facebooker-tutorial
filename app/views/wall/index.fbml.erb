@@ -1,0 +1,4 @@
+<% fb_wall do %>
+  <%= fb_wall_post(@facebook_user,"This is my message") %>
+  <%= fb_wall_post(@facebook_user.friends.first,"This is another message") %>
+<% end %>

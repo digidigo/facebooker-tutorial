@@ -1,0 +1,105 @@
+div#header li{
+	display:inline;
+}   
+
+div#header{
+	float:right;
+}   
+
+div.code{
+	margin-top:15px;
+        margin-bottom:15px;
+        overflow:auto;
+}
+
+
+div#tutorial_steps{
+	padding:10px;  
+	margin:auto;
+} 
+
+div#tutorial_steps li{
+  padding-top:5px;
+}
+
+h1 span, h1 img{
+	vertical-align:middle;
+}   
+
+li img{
+border:thin solid gray;
+padding:5px;
+display:block;
+margin:auto;
+}
+
+div#tutorial_steps p#purpose{
+	width:90%; 
+	margin:auto;
+	border: thick solid darkgray;
+}  
+
+h1{
+	font-size:25px;
+	padding:10px;
+}     
+
+h2{
+	margin:10px 0px;
+	font-size:20px;
+}  
+
+p.purpose{
+	font-size: 1.2em;
+	padding:5px;
+	border:thin solid black;
+	margin:15px;     
+	background-color:#f7f7f7;
+}   
+
+div.outer_wrapper{
+	margin-left:10px;
+	margin-right:10px;
+} 
+
+div.next_lesson{
+	float:right;
+	font-size:1.2em;
+	
+}   
+
+div.next_lesson a{
+	font-weight:bold;
+}   
+
+li{
+	font-size:1.2em;
+}  
+
+li em{
+	font-size:.9em;
+        color:blue;
+}   
+
+span.title{
+	font-size:1.2em;
+	font-weight:bold;
+}
+
+div#adspace{
+  width:500px;
+  margin:auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

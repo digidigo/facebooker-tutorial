@@ -1,0 +1,7 @@
+<% content_for("invite_user") do %>
+    This gets sent in the invite. <%= fb_req_choice("Come join us!","new_invite_path") %>
+  <% end %>
+  <% fb_request_form("Invite","invite_user","create_invite_path") do %>
+    Invite <%= fb_name(@facebook_user.friends.first.id)%> to the party<br />
+    <%= fb_request_form_submit(@facebook_user.friends.first.id, "Invite %n") %>
+  <% end %>

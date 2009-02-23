@@ -1,0 +1,37 @@
+
+
+<div id="tutorial_steps">
+<ol>
+     
+	 <li> 
+            Create a file called <em> extensions.rb </em> and put it in RAILS_ROOT/lib.
+            <em> Note: You can actually call it anything you want, this is just my approach </em>
+	  </li> 
+  
+          <li>
+             Now monkey patch the Facebooker::Session code like this:
+             <%= highlight_tagged("lib/extensions.rb", "MONKEY_PATCH") %>            
+          </li>
+
+          <li>
+            Now you can see your api calls in your log file. 
+            Posting to Facebook: <%= highlight_code('
+     {:method=>"facebook.profile.getFBML", 
+      :api_key=>"XXXXXXXXXXXXß", 
+      :session_key=>"XXXXXXXXXXXXXX-830904376", 
+       :uid=>830904376, :call_id=>"1203465370.03323", 
+       :sig=>"XXXXXXXXXXXXXXXXXXX", :v=>"1.0"')%>
+Response: 
+<%= highlight_code('
+  <?xml version="1.0" encoding="UTF-8"?>
+      <profile_getFBML_response 
+            xmlns="http://api.facebook.com/1.0/" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+            xsi:schemaLocation="http://api.facebook.com/1.0/ http://api.facebook.com/1.0/facebook.xsd"/>', :xml) %>
+          </li>
+
+	</ol> 
+</div>
+
+
+

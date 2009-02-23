@@ -1,0 +1,25 @@
+<fb:subtitle seeallurl="<%= outline_url() %>"> 
+    Learn About Facebooker - the ruby library
+</fb:subtitle>
+
+<style>
+h1 span, h1 img{
+	vertical-align:middle;
+}  
+</style>
+
+<h1> <%= image_tag("small_fbtt.png") %> <span>Fbooker Tutorial</span> </h1>  
+
+<ol>
+<% LessonOutline.outline.sections.each do |section| %>
+   <li> <%= link_to(section.name, url_for(section.lessons.first.url_options.merge(:only_path =>false))) %>   
+	 <ol>
+   <% section.lessons.each do |lesson| %>
+     <li> <%= link_to(lesson.title, url_for(lesson.url_options.merge(:only_path => false ))) %>  </li>
+  <% end %> 
+</ol>
+</li>
+<% end %>	
+</ol>
+
+

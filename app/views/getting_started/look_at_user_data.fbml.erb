@@ -1,0 +1,37 @@
+<div id="getting_started_steps">
+
+
+<ol>
+<li>
+    Display fields of the Facebooker User instance.
+   <p>
+	   <%= highlight_method("app/controllers/getting_started_controller.rb","setup_facebook_user") %>
+   </p> 
+   <p>
+	   <%= highlight_file("app/views/getting_started/_user_data_example.rhtml", :rhtml) %>
+   </p> 
+ <p>  
+	 <%= render :partial => 'user_data_example' %>
+   </p>
+</li>  
+
+<li>
+    Display friend profile pictures
+   <p>
+	   <%= highlight_file("app/views/getting_started/_user_friends_example.rhtml", :rhtml) %>
+   </p>   
+
+   <p>  
+	 <%= render :partial => 'user_friends_example' %>
+   </p>   
+	
+	
+</li>  
+
+
+
+
+
+</ol>
+
+</div>

@@ -1,0 +1,18 @@
+<h1>Listing facebooker_apps</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for facebooker_app in @facebooker_apps %>
+  <tr>
+    <td><%= link_to 'Show', facebooker_app %></td>
+    <td><%= link_to 'Edit', edit_facebooker_app_path(facebooker_app) %></td>
+    <td><%= link_to 'Destroy', facebooker_app, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New facebooker_app', new_facebooker_app_path %>

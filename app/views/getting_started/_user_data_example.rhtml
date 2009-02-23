@@ -1,0 +1,16 @@
+
+
+<span class="title">Fields on the User Object</span>
+<% if( @current_facebook_user.name rescue false)%>
+<ul>
+	<% for field in Facebooker::User::FIELDS.map(&:to_s).sort %>
+          <% value = h( @current_facebook_user.send(field).to_s ) %>
+	<li> <%= field %> :  <%= field.match(/pic/) ? image_tag(value) : value  %></li>      
+	<% end %>
+</ul>
+<% else %>
+  You must add the app to see this data.
+<% end%>
+
+
+                            

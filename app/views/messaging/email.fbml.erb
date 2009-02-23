@@ -1,0 +1,41 @@
+
+
+<div id="tutorial_steps">
+<ol>
+     
+	 <li> 
+		Create a class that extends Facebooker::Rails::Publisher. You can put this class anywhere but Rails will auto load it if you put it in RAILS_ROOT/lib. 
+                <%= highlight_tagged("lib/facebooker_publisher.rb", "CLASS_CREATE")%>
+	  </li> 
+  
+          <li>
+             Define a method that will handle your Email message.  
+             This method can take any number of arguments. A Facebook Email has a sender and a set of recievers and contains a title, text version and html version of this email.
+              Make sure you call <em> send_as :email </em> somewhere in your method. 
+             
+             <%= highlight_method("lib/facebooker_publisher.rb", "email") %>
+             
+          </li>
+
+       
+
+          <li>
+     Now you can deliver your Email to your users by calling deliver_<%= h("<method>") %> 
+      <%= highlight_controller_method("test_email") %>
+
+
+     <em> Note: in this example you are sending the Email to yourself. </em>
+</li>
+
+   <li>
+              You can reuse ActionMailer for the rendering of HTML and Text Versions of the email.  That is what the FacebookShell class is.
+<%= highlight_file("app/models/facebook_shell.rb") %>
+<%= highlight_file("app/views/facebook_shell/shell.text.html.rhtml") %>
+<%= highlight_file("app/views/facebook_shell/shell.text.plain.rhtml") %>
+</li>
+
+	</ol> 
+         <h2><%= link_to("Test Email Now!", :action => "test_email") %></h2>
+</div>
+
+

@@ -1,0 +1,62 @@
+<div id="tutorial_steps">
+
+
+<ol>
+<li> Create a rails application: <p class="command_line"> rails facebooker_tutorial</p></li>    
+<li> Install Facebooker Plugin: <p class="command_line"> script/plugin install git://github.com/mmangino/facebooker.git or </p>
+ <p> cd RAILS_ROOT/vendor/plugins; git clone git://github.com/mmangino/facebooker.git or </p>
+             <p>    Grab the tarball from <%= link_to("http://github.com/mmangino/facebooker/tree/master", "http://github.com/mmangino/facebooker/tree/master") %> and stick it in vendor/plugins manually
+</p></li>
+
+<li> Create a controller:        <p class="command_line"> ruby script/generate controller getting_started</p></li>
+
+
+<li>
+	Setup your application on <%= link_to("Facebook", "http://www.facebook.com/developers/editapp.php?new", :target => "fb_tut_external") %>.
+	<p class="descriptive_text">
+		This should take you to the new app page. 
+		<%= image_tag("getting_started/add_application.jpg") %> 
+		<ul>     
+			<li> Enter in Your Application Name.  This name will appear anywhere your application mentioned. </li>
+			<li> Enter in you Callback URL.  Make this the base URL of your server. <em> Note: For FBML apps, like this one, the url must be web accessible.</em></li>
+			<li> Enter in your Canvas Page URL.  This will be the path that users see in their browser. </li>
+		</ul>
+	</p>	
+	    
+</li>
+<li>
+	Setup facebooker environment via RAILS_ROOT/config/facebooker.yml, <em> You can copy the template file from the facebooker source.</em> 
+	<div style="width:90%;margin: 10px auto;"> 
+    <%= highlight_file("config/facebooker-mock.yml") %>
+</div>  
+    <ul> 
+	   <li>Enter in the callback url that you specified in the facebook application settings.</li>
+	   <li>Enter in your Canvas Page Name. <em>This the last part of the path you entered in the Canvas Page URL </em></li> 
+	</ul>
+
+</li>
+<li>Okay create a view for you getting_started controller.  And put anything you want in there.
+    <p>EDIT: app/views/getting_started/add_facebook_application.fbml.erb.  Like this: </p>
+    <%= highlight_file("app/views/getting_started/_steps.html.erb") %>
+    </li>
+<li> 
+	Add a default route for your application.  
+	<div style="width:90%;margin: 10px auto;"> 
+	
+	<%= highlight_code("map.connect '', :controller => 'getting_started', :action => 'add_facebook_application'") %>
+	</div>
+</li>
+<li>
+	Start up rails <p class="command_line">ruby script/server  </p>
+</li>
+<li>
+	Check out your app at <%= link_to(url =  url_for(:controller =>  params[:controller ], :action => params[:action], :only_path => false), url  ) %>
+</li>
+
+<li>Now create a view accessible straight from the web and put whatever you want in there. <p>EDIT: app/views/getting_started/add_facebook_application.html.erb</p></li>
+<li> Try from the web <%= link_to(url =  url_for(:controller =>  params[:controller ], :action => params[:action], :canvas => false, :only_path => false), url  ) %>  -- Here you are accessing you app straight from the web!!</li>     
+
+</ol>            
+
+</div> 
+

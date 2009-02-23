@@ -1,0 +1,20 @@
+
+<p>
+   FBML tab control is handled by two methods, <%= wiki_link("fb_tabs") %> and <%= wiki_link("fb_tab_item") %>.  If you check out the wiki you will see that fb_tabs tag contains some number of fb_tab_item tags.  Here is how the tab control is created for this tutorial. 
+</p>  
+
+<div id="tutorial_steps">
+<ol>
+	 <li> 
+		Create a method to determine if the current tab is selected or not.
+			  <%= highlight_method("app/helpers/application_helper.rb", "tab_selected?") %>
+	  </li>  
+	  <li> 
+		  Now create the fb_tabs container and all the fb_tab_items
+		  <%= highlight_file("app/views/layouts/_section_tabs.rhtml") %> 
+		  <%= highlight_method("app/helpers/application_helper.rb", "section_tab_items") %>
+		  <em>Note: fb_tabs method is a little touchy on what the block that you pass it does. The is why I factored out the code that returns the tab_items.</em>
+	  </li>
+	</ol> 
+  
+</div>

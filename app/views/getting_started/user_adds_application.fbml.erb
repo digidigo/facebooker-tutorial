@@ -1,0 +1,48 @@
+
+<ol>
+  <li> Call 'ensure_application_is_installed_by_facebook_user' at the top of your controller.
+   
+ 
+  
+    <%=  highlight_tagged("app/controllers/getting_started_controller.rb", "ENSURE") %>
+      <em> Note: This effectively adds a before filter to your controller.  Many applications put this call at the top of application.rb, and  you would not have any :only or :except options if you required installation for your entire app.</em>
+       </li>
+  <li> 
+    After a request passes this filter we can test whether the user has added the application. You can test this in ruby code with:
+    <%= highlight_tagged( File.join('app/views/getting_started/',File.basename(__FILE__)), "ADDED_APP", :rhtml)  %>
+    
+    <em>
+      <%# ADDED_APP_TAG %>
+      You have added the application? <%= @current_facebook_user.has_added_app.to_s == 1.to_s rescue false %>  
+      <%# ADDED_APP_TAG %>
+    </em>
+  </li> 
+  
+  <li>
+    You can also test whether the user has added the app with fbml. 
+    <%= highlight_file("app/views/getting_started/_check_user_has_added_app.fbml.erb",:rhtml) %>
+    <%= render :partial => "check_user_has_added_app"%>
+  </li>
+  
+  <li>
+    If your whole app does not require that users add it to facebook you need to handle the facebook callback that 
+    happens after a user adds the app. This is generally neccesary when you want to handle multiple possible authenticated entry points 
+    into your application.  For <%= link_to("TravelersTable", "http://apps.facebook.com/travelerstable") %> we publish meetings into peoples
+    news feeds.  So a new user might come to our app wanting to look at a particular Meeting, you must be an app user to see the meetings.
+    
+    <ol>
+      <li>
+            Edit your application settings on Facbook and change the Post-Add URL setting. Make this the same as your canvas page url.</li>
+      <%= image_tag("getting_started/post_add_url.png?v3") %> 
+      <li> In your application.rb , override the method <em>application_is_not_installed_by_facebook_user.</em>  
+        This is the method that is called by Facebooker when it detects a user that has not installed the app.
+        <%= highlight_method("app/controllers/application.rb", "application_is_not_installed_by_facebook_user") %>                 
+      </li> 
+      
+      <li> Define a method that returns the path that facebook should redirect to.  This should be a path only not a fully qualified URL.
+        <%= highlight_method("app/controllers/application.rb", "next_path") %>                 
+      </li>
+    </ol>
+  </li>
+</ol>
+

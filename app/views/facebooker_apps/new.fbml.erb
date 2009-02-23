@@ -1,0 +1,14 @@
+<h1><%= @facebooker_app.new_record? ? "New" : "Edit"%> Facebooker App</h1>
+
+<%= error_messages_for :facebooker_app %>
+
+<% facebook_form_for(@facebooker_app) do |f| %>
+    <%= f.text_field :name, :label => "Application Name"%>
+    <%= f.text_field :image_url%>
+    <%= f.text_area :description %>
+    <%= f.text_field :url %>
+
+    <%= f.buttons(@facebooker_app.new_record? ? "Create" : "Update") %>
+<% end %>
+
+<%= link_to 'Back', facebooker_apps_path %>

@@ -1,0 +1,23 @@
+<ol>
+<% LessonOutline.outline.sections.each do |section| %>
+   <li> <%= link_to(section.name, url_for(section.lessons.first.url_options)) %>   
+	 <ol>
+   <% section.lessons.each do |lesson| %>
+     <li> <%= link_to(lesson.title, url_for(lesson.url_options)) %>  </li>
+  <% end %> 
+</ol>
+</li>
+<% end %>	
+</ol>
+
+<p>
+
+<h3>Current Facebooker Version</h3> 
+<% cache("current_fb_version") do %>
+<pre> 
+<%- FileUtils.cd(File.join(RAILS_ROOT,"vendor/plugins/facebooker")) do %>
+<%= `git log`  %>
+  <%- end  %>
+</pre>
+<%end %>
+</p>

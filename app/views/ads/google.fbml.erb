@@ -1,0 +1,29 @@
+
+
+<div id="tutorial_steps">
+<ol>
+	 <li> 
+		Sign up for Google Adsense and configure an ad form your site.  Get ready with the Adsense code to paste into your application.
+                 <br/> 
+                 <em> Note: Google will require that your site is up and running before they will give you an adsense account </em> 
+	  </li>  
+	  <li> 
+		Now create a controller that will serve up your google ads.  This is necessary because our ad will be served through an iframe.
+                <br/>
+                <em> ruby script/generate controller ads.</em>
+	  </li>
+
+          <li>
+                Create an action on your 'ads' controller called adsense and have it render you adsense code directly.
+<%= highlight_controller_method('adsense') %>
+          </li> 
+
+          <li>
+                Render an iframe anywhere you like for your ad. 
+               <%= highlight_tagged('app/views/layouts/application.fbml.erb', "GOOGLE_AD_DIV", "rhtml") %>
+               <%= highlight_helper_method('application', "google_ad") %> 
+               <em> Note: You will need to make sure that your iframe is the correct size. </em>
+          </li>
+	</ol> 
+  
+</div>

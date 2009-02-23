@@ -1,0 +1,31 @@
+                     
+<ol>
+	
+	<li> First setup up the content for the actual invite. By calling the content_for method and passing in the id of your <%= wiki_link("fb_request_form") %>. </li>  
+
+	<%= highlight_tagged("app/views/fbml/invite_friends.fbml.erb", "CONTENT_FOR", :rhtml) %>
+
+    <li> Now create the actual form using <%= wiki_link("fb_request_form") %>.   You can optionally pass in :condensed => true for the list box version.  The URL passed to this method is the URL Facebook will will direct the user to after the request is handled.  
+		<%= highlight_tagged("app/views/fbml/invite_friends.fbml.erb", "FB_REQUEST_FORM", :rhtml) %>   
+	  <em> Check out the working example below and invite some friend to check out the tutorial.</em>
+
+
+</li>
+
+</ol>  
+
+<!-- CONTENT_FOR_TAG -->
+<% content_for("invite_user") do %>
+	Check out the new Facebooker Tutorial.  Lots of good stuff in there! <%= fb_req_choice("Check it out!", outline_url()) %>
+<% end %>                      
+
+<!-- CONTENT_FOR_TAG --> 
+
+<!-- FB_REQUEST_FORM_TAG-->
+
+<% fb_request_form("Facebooker Application","invite_user", url_for(@next_lesson.url_options)) do %>
+	<%= fb_multi_friend_selector("Invite your friends to check out Facebooker Tutorial.", :showborder => true, 
+                                      :exclude_ids => @facebook_session.user.friends_with_this_app.map(&:id).join(","))   %>
+<% end %>             
+
+<!-- FB_REQUEST_FORM_TAG-->

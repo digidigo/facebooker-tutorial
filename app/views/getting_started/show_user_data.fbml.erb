@@ -1,0 +1,14 @@
+<ul>
+<% for field in Facebooker::User::FIELDS %>
+<li> <%= field %>:  <%= @facebook_user.send(field) %></li>      
+<% end %>
+</ul>
+
+Friend Ids:: <ul>
+   <% for friend in @facebook_user.friends %>
+<li>         <%= fb_name(friend)%>
+</li>
+   <% end %>
+
+</ul>
+	

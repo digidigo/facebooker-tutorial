@@ -1,0 +1,34 @@
+<ol>
+  <li> Decide what the unique id will be for you comments area. </li>
+  <li> Add <%= wiki_link('fb_comments') %> . 
+  <%= highlight_method("vendor/plugins/facebooker/lib/facebooker/rails/helpers.rb","fb_comments")%>
+  <em> Note: A few of the options to this fbml tag are provided as arguments to the fb_comments method </em>
+   
+  </li>
+
+<li> Other options from the wiki are 
+  <ul>
+    <li> callbackurl: 	 The URL to refetch this configuration. (default value is the current page)</li>
+    <li> returnurl: 	 The URL where the user is returned after selecting a "back" link. (default value is the current page)</li>
+    <li> showform: 	Boolean whether to show the form (canpost "true" only) for inline posting. Posts using this form will not go to a see-all page after posting, but rather refresh the page.</li>
+    <li> send_notification_uid: 	 User ID to send a notification to upon someone posting a comment. (Only one uid allowed).
+  </ul>
+
+</li>
+
+<li> Here is how to create a comment section with the ability for an admin to delete any messages.
+
+<%= highlight_tagged("app/views/fbml/#{File.basename(__FILE__)}", "FB_COMMENTS", :rhtml) %>   
+
+<%#*FB_COMMENTS_TAG%>    
+<% fb_if_is_user("830904376") do %>
+    <%= fb_comments( "comments_for_comment_lesson", true, true, 20,:showform => true, :title => "Comment Lesson Comments" ) %>
+  <% fb_else do %>
+    <%= fb_comments( "comments_for_comment_lesson", true, false, 5,:showform => true, :title => "Comment Lesson Comments" ) %>
+  <% end %>
+<% end %>
+<%#*FB_COMMENTS_TAG%>    
+
+
+</li>
+</ol>

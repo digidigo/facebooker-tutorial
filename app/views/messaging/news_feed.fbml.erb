@@ -1,0 +1,38 @@
+
+
+<div id="tutorial_steps">
+<ol>
+  <li>
+     I am pretty sure that the permissions around the News Feed, require that the user hass added the application.  Put this call at the top of the controller. 
+     <%= highlight_code("ensure_application_is_installed_by_facebook_user") %> According to the wiki for <%= wiki_link("Feed.publishActionOfUser")%> 
+          you can only call this method once every 12 hours per user. Typically this call is used to remind a user that your application exists by publishing information 
+          that might be of interest to the user.
+</li>
+	 <li> 
+		Create a class that extends Facebooker::Rails::Publisher. You can put this class anywhere but Rails will auto load it if you put it in RAILS_ROOT/lib. 
+                <%= highlight_tagged("lib/facebooker_publisher.rb", "CLASS_CREATE")%>
+                <em> Note: Facebook will fail silently  if the user has not added the app </em>
+	  </li> 
+  
+          <li>
+             Define a method that will handle your News Feed message.  
+             This method can take any number of arguments. A News feed item is published to the currently logged in 
+             user and has a title and body. The Publisher API requires that you set the recipients to recieve this story. 
+             Each of these recipients must have its own <em>facebook_session</em> allready setup. Make sure you call "send_as :story" on the first line.
+             
+             <%= highlight_method("lib/facebooker_publisher.rb", "news_feed") %>
+             
+
+          </li>
+
+<li>  Now you can deliver your NewsFeed news item by calling deliver_<%= h("<method>") %> 
+      <%= highlight_controller_method("test_news_feed") %>
+
+</li>
+
+
+	</ol> 
+         <h2><%= link_to("Test NewsFeed Now!", :action => "test_news_feed") %></h2>
+</div>
+
+

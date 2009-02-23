@@ -1,0 +1,10 @@
+---
+user: capistrano
+group: capistrano
+cwd: /home/capistrano/apps/facebooker_tutorial/current
+port: 8800
+environment: production
+address: 127.0.0.1
+pid_file: /home/capistrano/apps/facebooker_tutorial/current/log/mongrel.pid
+servers: 2
+

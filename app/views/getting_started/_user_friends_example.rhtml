@@ -1,0 +1,10 @@
+Pictures of your friends: 
+<% if( @current_facebook_user.name rescue false)%>
+<div style="width:80%">
+	<% for friend in @current_facebook_user.friends[0..20] %>
+	<%= fb_profile_pic(friend)%>
+	<% end %>         
+</div>   
+<% else %>
+  You must add the app to see this data.
+<% end%>

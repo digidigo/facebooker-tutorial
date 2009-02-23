@@ -1,0 +1,36 @@
+<script>
+function do_ajax(div,url) {
+  var ajax = new Ajax();
+  ajax.responseType = Ajax.JSON;
+  ajax.useLocalProxy = true;
+  ajax.ondone = function(xhtml) {
+    var p = document.getElementById(div);
+    p.setInnerXHTML(xhtml.content);
+  }
+  ajax.onerror = function() {
+		new Dialog().showMessage('Processing Error', 'Sorry there seems to be something wrong with the site.'); return false;
+  }
+  ajax.post(url);
+ }
+</script>
+   
+
+
+
+<%= link_to_function("AJAX ME", "do_ajax('empty_div','#{url_for(:action => "update_ajax", :canvas => false, :only_path => false,
+ request_forgery_protection_token.to_s => h(form_authenticity_token()) )}');") %> 
+
+
+<div id="empty_div">
+    Update ME
+</div>   
+
+
+
+<fb:local-proxy/>
+
+
+
+
+
+

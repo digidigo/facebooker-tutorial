@@ -1,0 +1,5 @@
+<%= javascript_include_tag("facebooker") %>
+<%= link_to_remote("FOO", :url => url_for(:action => "update_test", :canvas => false, :only_path => false), :update => "empty_div") %>
+
+<div id="empty_div">
+</div> 

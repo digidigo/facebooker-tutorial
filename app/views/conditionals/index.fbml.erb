@@ -1,0 +1,6 @@
+<% fb_if_is_app_user(@facebook_user) do %>
+  Hey you are an app user!
+<% fb_else do %>
+  Hey you aren't an app user.  <%= link_to("Add App and see the other side.", :action => "added_app") %>
+<% end %>
+<% end %>

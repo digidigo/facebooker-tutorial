@@ -1,0 +1,2 @@
+class StatusMessageController < ApplicationController
+end

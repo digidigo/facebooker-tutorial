@@ -1,0 +1,51 @@
+<div id="getting_started_steps">
+
+
+<ol>
+<li>
+	Call 'ensure_authenticated_to_facebook' at the top of your controller.    
+	<p>
+	   <%= highlight_code("ensure_authenticated_to_facebook [:except => 'add_facebook_application']     ") %>
+	</p>
+	<em> Note: This effectively adds a before filter to your controller. And this method take the same arguments as before_filter  </em>
+</li>  
+
+<li>
+   Now we can look into what Facebooker has done for us by looking inside the Facebooker::Session. Facebooker sets this up in the rails session and also sets
+   an instance variable @facebook_session, 
+there is a method called 'set_facebook_session' that facebooker calls in the before filter.
+   
+   
+   <p>
+	   <%= highlight_method("vendor/plugins/facebooker/lib/facebooker/rails/controller.rb","set_facebook_session") %>
+             <%= highlight_method("vendor/plugins/facebooker/lib/facebooker/rails/controller.rb","secure_with_facebook_params!") %>
+
+   </p> 
+  </li> 
+    <li>    Now in the view we can access @facebook_session via a helper method.	   
+  <p>
+     
+   <%= highlight_method("app/helpers/getting_started_helper.rb","show_session_data") %>
+   </p>   
+
+   <p>  
+	   <span class="title">And here is the output YAML dump of the facebooker_session</span>
+	    <%= highlight_code(show_session_data) %>  
+	<em> Note: The expires field could be some number or 0, this depends on if you clicked 'Keep me logged in.'</em>
+   </p>  
+ </li>
+
+<li>
+   One thing to note here is that Facebook and Rails default session store are incompatible. Ideally you can use  an active record session store.
+   You can do this by running 
+   <%= highlight_code("rake db:sessions:create") %>
+   Then add this to your environment.rb
+   <%= highlight_code(" config.action_controller.session_store = :active_record_store")%>
+
+</li> 
+	
+
+</ol>
+
+</div>
+	

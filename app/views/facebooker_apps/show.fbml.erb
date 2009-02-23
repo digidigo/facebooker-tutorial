@@ -1,0 +1,5 @@
+     <%= render :partial => "facebooker_app"%>
+
+
+<%= link_to 'Edit', edit_facebooker_app_path(@facebooker_app) if(owns_app(@facebooker_app)) %> |
+<%= link_to 'Back', facebooker_apps_path %>
